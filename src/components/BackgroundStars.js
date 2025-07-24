@@ -51,15 +51,19 @@ export default function BackgroundStars() {
     function animate() {
       ctx.clearRect(0, 0, width, height)
 
-      // Background
+      // Arka plan
       ctx.fillStyle = '#0a1a2f'
       ctx.fillRect(0, 0, width, height)
 
-      // Stars
+      // Yıldızlar
       for (let s of stars) {
+        const gradient = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.r * 3)
+        gradient.addColorStop(0, `rgba(91, 167, 255, ${s.alpha})`)
+        gradient.addColorStop(1, `rgba(0, 31, 63, 0)`)
+
         ctx.beginPath()
-        ctx.arc(s.x, s.y, s.r, 0, 2 * Math.PI)
-        ctx.fillStyle = `rgba(91, 167, 255, ${s.alpha})`
+        ctx.arc(s.x, s.y, s.r * 2, 0, 2 * Math.PI)
+        ctx.fillStyle = gradient
         ctx.fill()
 
         s.x += s.dx
@@ -74,7 +78,6 @@ export default function BackgroundStars() {
       }
 
       drawMeteors()
-
       requestAnimationFrame(animate)
     }
 
