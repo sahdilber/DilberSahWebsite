@@ -8,7 +8,7 @@ export default function Contact() {
       <section id="contact" className={styles.contactSection}>
         <h2 className={styles.title}>Contact</h2>
         <p className={styles.subtitle}>
-        I&apos;m always open to exciting opportunities and collaborations. Let’s build something awesome together.
+        I&apos;m always open to exciting opportunities and collaborations. Let&apos;s build something awesome together.
         </p>
 
         <div className={styles.icons}>

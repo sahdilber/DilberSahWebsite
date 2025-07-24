@@ -9,7 +9,7 @@ export default function Skills() {
     <section id="skills" className={styles.skillsSection}>
       <h2 className={styles.title}>Technologies I Work With</h2>
       <p className={styles.subtitle}>
-        Cutting-edge tools and frameworks for building the future
+        Cutting edge tools and frameworks for building the future
       </p>
 
       <div className={styles.grid}>
