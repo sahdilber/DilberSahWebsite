@@ -1,60 +1,103 @@
-// src/components/BackgroundStars.js
 import { useEffect, useRef } from 'react'
-import styles from '../styles/BackgroundStars.module.css'
 
 export default function BackgroundStars() {
-  const canvasRef = useRef(null)
+  const canvasRef = useRef()
 
   useEffect(() => {
     const canvas = canvasRef.current
     const ctx = canvas.getContext('2d')
-    let stars = []
+    let width = (canvas.width = window.innerWidth)
+    let height = (canvas.height = window.innerHeight)
 
-    const createStars = () => {
-      stars = Array.from({ length: 300 }, () => ({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        radius: Math.random() * 1.5 + 0.3,
-        alpha: Math.random(),
-        delta: Math.random() * 0.02,
-        dx: (Math.random() - 0.5) * 0.05,
-        dy: (Math.random() - 0.5) * 0.05
-      }))
+    const stars = Array.from({ length: 150 }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      r: Math.random() * 1.2 + 0.3,
+      dx: (Math.random() - 0.5) * 0.3,
+      dy: (Math.random() - 0.5) * 0.3,
+      alpha: Math.random()
+    }))
+
+    let meteors = []
+
+    function drawMeteors() {
+      if (Math.random() < 0.03) {
+        meteors.push({
+          x: Math.random() * width,
+          y: -10,
+          dx: Math.random() * 4 + 2,
+          dy: Math.random() * 1.5 + 1,
+          length: Math.random() * 80 + 50,
+          opacity: 0.6
+        })
+      }
+
+      meteors = meteors.filter(m => m.y < height + 100)
+
+      meteors.forEach(m => {
+        ctx.beginPath()
+        ctx.moveTo(m.x, m.y)
+        ctx.lineTo(m.x - m.length, m.y - m.length / 2)
+        ctx.strokeStyle = `rgba(255,255,255,${m.opacity})`
+        ctx.lineWidth = 2
+        ctx.stroke()
+
+        m.x += m.dx
+        m.y += m.dy
+        m.opacity -= 0.01
+      })
     }
 
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-      stars.forEach(star => {
-        star.x += star.dx
-        star.y += star.dy
+    function animate() {
+      ctx.clearRect(0, 0, width, height)
 
-        star.alpha += star.delta
-        if (star.alpha <= 0 || star.alpha >= 1) star.delta *= -1
+      // Background
+      ctx.fillStyle = '#0a1a2f'
+      ctx.fillRect(0, 0, width, height)
 
-        if (star.x < 0 || star.x > canvas.width) star.dx *= -1
-        if (star.y < 0 || star.y > canvas.height) star.dy *= -1
-
+      // Stars
+      for (let s of stars) {
         ctx.beginPath()
-        ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI)
-        ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`
-        ctx.shadowBlur = 5
-        ctx.shadowColor = 'white'
+        ctx.arc(s.x, s.y, s.r, 0, 2 * Math.PI)
+        ctx.fillStyle = `rgba(91, 167, 255, ${s.alpha})`
         ctx.fill()
-      })
+
+        s.x += s.dx
+        s.y += s.dy
+        s.alpha += (Math.random() - 0.5) * 0.02
+        s.alpha = Math.min(Math.max(s.alpha, 0.2), 0.9)
+
+        if (s.x < 0) s.x = width
+        if (s.x > width) s.x = 0
+        if (s.y < 0) s.y = height
+        if (s.y > height) s.y = 0
+      }
+
+      drawMeteors()
+
       requestAnimationFrame(animate)
     }
 
-    const resize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
-      createStars()
-    }
-
-    resize()
     animate()
-    window.addEventListener('resize', resize)
-    return () => window.removeEventListener('resize', resize)
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth
+      height = canvas.height = window.innerHeight
+    })
   }, [])
 
-  return <canvas ref={canvasRef} className={styles.canvas} />
+  return (
+    <canvas
+      ref={canvasRef}
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        zIndex: 0,
+        width: '100%',
+        height: '100%',
+        background: 'radial-gradient(ellipse at top left, #0a1a2f, #0d1117)'
+      }}
+    />
+  )
 }

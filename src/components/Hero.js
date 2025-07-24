@@ -1,6 +1,7 @@
 import styles from '../styles/Hero.module.css'
 import Link from 'next/link'
 import { Typewriter } from 'react-simple-typewriter'
+import { FaArrowDown } from 'react-icons/fa'
 import BackgroundStars from './BackgroundStars' // ⭐ Yıldızlar eklendi
 import { FaGithub, FaLinkedin, FaTimes, FaFileAlt, FaDownload, FaEye } from 'react-icons/fa'
 
@@ -57,15 +58,15 @@ export default function Hero() {
             <FaDownload />
           </a>
         </div>
-
         <div className={styles.downArrowWrapper}>
-          <a href="#skills">
-            <div className={styles.downArrowCircle}>
-              <span className={styles.downArrowIcon}>↓</span>
+        <a href="#skills">
+            <div className={styles.downArrow}>
+            <FaArrowDown />
             </div>
-          </a>
-        </div>
+        </a>
+       </div>
       </div>
+      
     </section>
   )
 }

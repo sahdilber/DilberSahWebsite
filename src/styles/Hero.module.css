@@ -13,6 +13,7 @@
   z-index: 1;
 }
 
+
 .container {
   max-width: 900px;
   width: 100%;
@@ -93,25 +94,28 @@
 }
 
 .primaryButton {
-  background: #2563eb;
-  color: #fff;
-  padding: 0.9rem 1.8rem;
-  font-weight: bold;
-  border-radius: 0.6rem;
+  background: linear-gradient(to right, #2563eb, #4f46e5);
+  color: white;
+  padding: 0.85rem 1.7rem;
+  font-weight: 600;
+  border-radius: 0.55rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  transition: background 0.3s ease;
+  font-size: 1rem;
+  box-shadow: 0 0 10px rgba(80, 120, 255, 0.15);
+  transition: all 0.3s ease;
 }
 
 .primaryButton:hover {
-  background: #1e40af;
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(91, 135, 255, 0.3);
+  background: linear-gradient(to right, #1d4ed8, #4338ca);
 }
-
 .outlineButton {
-  background-color: transparent;
-  border: 1px solid #3b82f6;
-  color: #3b82f6;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(91, 167, 255, 0.6);
+  color: #91baff;
   padding: 0.9rem 1.6rem;
   border-radius: 0.6rem;
   font-weight: bold;
@@ -122,60 +126,73 @@
 }
 
 .outlineButton:hover {
-  background-color: #1d4ed8;
+  background: rgba(91, 167, 255, 0.2);
   color: white;
+  box-shadow: 0 0 15px rgba(130, 88, 255, 0.3);
 }
 
 .iconButton {
-  background-color: transparent;
-  border: 1px solid #3b82f6;
-  color: #3b82f6;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(130, 88, 255, 0.5);
+  color: #a5b4fc;
   padding: 0.9rem 1rem;
   border-radius: 0.6rem;
   font-size: 1.2rem;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 6px rgba(130, 88, 255, 0.1);
 }
 
 .iconButton:hover {
-  background-color: #1d4ed8;
+  background: linear-gradient(to right, #6366f1, #8b5cf6);
   color: white;
+  box-shadow: 0 0 16px rgba(130, 88, 255, 0.4);
 }
-
 .downArrowWrapper {
-  margin-top: 2.5rem;
-  display: flex;
-  justify-content: center;
-}
-
-.downArrowCircle {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(8px);
+  margin-top: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 12px rgba(130, 88, 255, 0.2);
+  width: 100%;
+}
+
+.downArrow {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s ease;
   cursor: pointer;
-  animation: bounce 2s infinite ease-in-out;
+  box-shadow: 0 0 10px rgba(138, 43, 226, 0.2);
+  animation: floatY 4s ease-in-out infinite;
 }
 
-.downArrowCircle:hover {
-  transform: scale(1.15);
-  box-shadow: 0 0 25px #b86bff, 0 0 35px #8e44ec;
-}
-
-.downArrowIcon {
-  font-size: 1.8rem;
+.downArrow svg {
+  font-size: 1.6rem;
   color: #60a5fa;
-  transition: filter 0.3s ease;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.downArrowCircle:hover .downArrowIcon {
-  filter: brightness(1.6);
+.downArrow:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 20px #b86bff, 0 0 30px #8e44ec;
+}
+
+.downArrow:hover svg {
+  filter: brightness(1.5);
+  transform: translateY(3px);
+}
+
+@keyframes floatY {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
 }
 
 @keyframes bounce {
@@ -227,18 +244,5 @@
 
   .socialIcons {
     gap: 0.8rem;
-  }
-
-  .downArrowWrapper {
-    margin-top: 1.5rem;
-  }
-
-  .downArrowCircle {
-    width: 50px;
-    height: 50px;
-  }
-
-  .downArrowIcon {
-    font-size: 1.5rem;
   }
 }

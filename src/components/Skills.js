@@ -1,7 +1,6 @@
 import styles from '../styles/Skills.module.css'
 import { FaHtml5, FaCss3Alt, FaJs, FaPython, FaReact } from 'react-icons/fa'
 import { SiSwift, SiCplusplus, SiNextdotjs } from 'react-icons/si'
-import { FaArrowDown } from 'react-icons/fa'
 
 export default function Skills() {
   return (
@@ -69,13 +68,6 @@ export default function Skills() {
           <span>Next.js</span>
         </div>
       </div>
-      <div className={styles.downArrowWrapper}>
-        <a href="#about">
-            <div className={styles.downArrow}>
-            <FaArrowDown />
-            </div>
-        </a>
-       </div>
     </section>
     
   )

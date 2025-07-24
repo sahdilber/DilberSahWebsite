@@ -102,37 +102,3 @@
       transform: translateY(0);
     }
   }
-  .downArrowWrapper {
-    margin-top: 60px;
-  }
-  
-  .downArrow {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.4s ease;
-    cursor: pointer;
-    box-shadow: 0 0 10px rgba(138, 43, 226, 0.2);
-}
-  
-  .downArrow svg {
-    font-size: 1.6rem;
-    color: #60a5fa;
-    transition: transform 0.3s ease, filter 0.3s ease;
-  }
-  
-  .downArrow:hover {
-    transform: scale(1.2);
-    box-shadow: 0 0 20px #b86bff, 0 0 30px #8e44ec;
-  }
-  
-  .downArrow:hover svg {
-    filter: brightness(1.5);
-    transform: translateY(3px);
-  }
- 
