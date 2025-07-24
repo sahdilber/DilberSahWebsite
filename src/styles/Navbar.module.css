@@ -1,42 +1,50 @@
+/* Temel stiller */
 .header {
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
   padding: 1rem 2rem;
-  background-color: #0f0f1a;
+  background-color: rgba(15, 15, 26, 0.9);
+  backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 2px solid transparent;
-  border-image: linear-gradient(to right, #3b82f6, #ec4899);
-  border-image-slice: 1;
-}
-.logo {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #fff;
-  padding: 8px 18px;
-  border-radius: 12px;
-  background: radial-gradient(circle at top left, #4facfe, #b672f6);
-  box-shadow: 0 0 12px rgba(180, 120, 255, 0.2);
-  transition: transform 0.3s ease;
-  cursor: pointer;
-}
-.logo:hover {
-  transform: scale(1.05);
+  border-bottom: 1px solid rgba(100, 100, 150, 0.15);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Logo */
+.logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 16px;
+  background: linear-gradient(to right, #4facfe, #b672f6);
+  box-shadow: 0 0 10px rgba(180, 120, 255, 0.3);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.logo:hover {
+  transform: scale(1.06);
+}
+
+/* Navigasyon */
 .nav {
   background-color: #151522;
-  border-radius: 30px;
-  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  padding: 0.5rem 1.2rem;
 }
 
 .menu {
   display: flex;
   gap: 2rem;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .menu li a {
@@ -44,18 +52,16 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 10px 18px;
+  padding: 10px 16px;
   border-radius: 16px;
   color: #e2e8f0;
   font-weight: 500;
   text-decoration: none;
   transition: all 0.3s ease;
-  background: transparent;
-  z-index: 1;
   overflow: hidden;
+  z-index: 1;
 }
 
-/* Arka plan efekti */
 .menu li a::before {
   content: '';
   position: absolute;
@@ -67,7 +73,6 @@
   z-index: -1;
 }
 
-/* Alt çizgi */
 .menu li a::after {
   content: '';
   position: absolute;
@@ -76,14 +81,12 @@
   width: 100%;
   height: 3px;
   background: linear-gradient(to right, #3b82f6, #9333ea, #ec4899);
-  border-radius: 2px;
   transform: scaleX(0);
   transform-origin: center;
   transition: transform 0.3s ease;
   z-index: 2;
 }
 
-/* Hover ve active durumunda görünür yap */
 .menu li a:hover::before,
 .menu li a.active::before {
   opacity: 1;
@@ -99,6 +102,7 @@
   color: #ffffff;
 }
 
+/* Contact button */
 .contactBtn {
   background: linear-gradient(to right, #3b82f6, #ec4899);
   color: white;
@@ -115,6 +119,8 @@
 .contactBtn:hover {
   transform: scale(1.05);
 }
+
+/* Baloncuk animasyonu */
 .bubbleContainer {
   position: absolute;
   top: 50%;
@@ -130,17 +136,128 @@
   pointer-events: none;
   filter: drop-shadow(0 0 6px rgba(173, 216, 255, 0.6));
 }
-@keyframes explode {
-  0% {
-    opacity: 0.8;
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: translate(var(--x), var(--y)) scale(1.5);
-  }
-  100% {
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Mobil contact */
+.mobileContact {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    transform: translateY(-100%);
     opacity: 0;
-    transform: translate(var(--x), var(--y)) scale(0.5);
+    pointer-events: none;
+    background-color: rgba(21, 21, 34, 0.98);
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    transition: all 0.4s ease;
+  }
+
+  .nav.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    gap: 1rem;
+  }
+
+  .menu li a {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .contactBtn {
+    display: none;
+  }
+
+  .mobileContact {
+    display: block;
+  }
+
+  .hamburger {
+    display: block;
+  }
+  .lensButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    z-index: 1001;
+    margin-left: 1rem;
+  }
+  
+  .lensCircle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, #3b82f6, #9333ea);
+    box-shadow: 0 0 10px rgba(100, 100, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.4s ease;
+    position: relative;
+  }
+  
+  .lensLine {
+    width: 18px;
+    height: 2px;
+    background-color: white;
+    margin: 2px 0;
+    border-radius: 10px;
+    transition: all 0.4s ease;
+  }
+  
+  .lensButton.open .lensCircle {
+    transform: rotate(180deg) scale(1.05);
+    background: radial-gradient(circle at center, #ec4899, #3b82f6);
+  }
+  
+  .lensButton.open .lensLine:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .lensButton.open .lensLine:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .lensButton.open .lensLine:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  .lensCircle::after {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle, #fff, transparent);
+    border-radius: 50%;
+    opacity: 0.5;
   }
 }
