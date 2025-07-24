@@ -1,0 +1,138 @@
+.skillsSection {
+    min-height: 100vh;
+    padding: 100px 20px;
+    text-align: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* sayfa ortalama */
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    background: linear-gradient(to right, #4facfe, #b672f6);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: bold;
+    margin-bottom: 10px;
+    animation: fadeUp 1s ease-in-out;
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 50px;
+    animation: fadeUp 1.2s ease-in-out;
+  }
+  
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 40px 20px;
+  }
+  
+  .iconGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .icon {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 8px;
+    transition: transform 0.4s ease;
+  }
+  
+  .iconGroup span {
+    font-size: 1rem;
+    color: #dcdcdc;
+    margin-top: 8px;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  .iconWrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;  /* ikon yatayda ortalanır */
+    align-items: center;      /* ikon dikeyde ortalanır */
+    animation: float 6s ease-in-out infinite;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+  }
+  
+  .icon {
+    font-size: 2.8rem; /* büyütülmüş hali */
+    color: #ffffff;
+    filter: drop-shadow(0 0 6px rgba(180, 120, 255, 0.4));
+    transition: transform 0.3s ease;
+  }
+  
+  .iconWrapper:hover {
+    transform: scale(1.25) rotate(5deg);
+    box-shadow: 0 0 30px #b86bff, 0 0 40px #8e44ec;
+    filter: brightness(1.6);
+  }
+  
+ 
+  /* Animasyonlar */
+  @keyframes fadeUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .downArrowWrapper {
+    margin-top: 60px;
+  }
+  
+  .downArrow {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.2);
+}
+  
+  .downArrow svg {
+    font-size: 1.6rem;
+    color: #60a5fa;
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+  
+  .downArrow:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 20px #b86bff, 0 0 30px #8e44ec;
+  }
+  
+  .downArrow:hover svg {
+    filter: brightness(1.5);
+    transform: translateY(3px);
+  }
+ 

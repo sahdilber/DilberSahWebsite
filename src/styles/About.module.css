@@ -1,0 +1,84 @@
+.aboutSection {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    background: transparent;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: row;
+    max-width: 1200px;
+    gap: 60px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .text {
+    flex: 1;
+    min-width: 300px;
+    animation: fadeUp 1s ease-in-out;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #58a6ff, #b962ff);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: bold;
+  }
+  
+  .description {
+    font-size: 1rem;
+    color: #dcdcdc;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  
+  .avatarContainer {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .avatar {
+    width: 280px; /* eski: 250px */
+    height: 280px;
+    border-radius: 50%;
+    box-shadow: 0 0 40px rgba(138, 43, 226, 0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .avatar:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 55px rgba(180, 120, 255, 0.6);
+  }
+  
+  /* Animasyonlar */
+  @keyframes fadeUp {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }

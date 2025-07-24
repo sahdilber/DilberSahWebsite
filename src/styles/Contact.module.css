@@ -1,0 +1,181 @@
+.contactPage {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+
+.contactSection {
+  flex: 1;
+  padding: 100px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.title {
+  font-size: 2.8rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #4facfe, #b672f6);
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 10px;
+  animation: fadeUp 1s ease-in-out;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #ccc;
+  margin-bottom: 50px;
+  max-width: 600px;
+  animation: fadeUp 1.2s ease-in-out;
+}
+
+.icons {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.iconWrapper {
+  position: relative;
+  font-size: 2.6rem;
+  color: #ccc;
+  background: none;
+  transition: transform 0.3s ease, box-shadow 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconWrapper svg {
+  fill: currentColor;
+  background: none;
+  border: none;
+  transition: color 0.3s ease;
+}
+
+.iconWrapper:hover {
+  transform: scale(1.2);
+  color: #ffffff;
+  box-shadow: 0 0 20px 10px rgba(180, 120, 255, 0.3);
+}
+
+.iconWrapper:hover svg {
+  background: none;
+  box-shadow: none;
+}
+
+/* Tooltip */
+.iconWrapper::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  color: #ccc;
+  padding: 4px 10px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.iconWrapper:hover::before {
+  opacity: 1;
+}
+
+/* Glow Ring */
+.iconWrapper::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(rgba(180, 120, 255, 0.3), transparent 80%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: pulseRing 4s infinite ease-in-out;
+  z-index: -1;
+}
+
+.iconWrapper:hover::after {
+  opacity: 1;
+}
+
+.footer {
+  padding: 30px 20px 50px;
+  text-align: center;
+  animation: fadeUp 1.5s ease-in-out;
+  position: relative;
+}
+
+.footer::before {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 70%;
+  margin: 0 auto 16px;
+  background: linear-gradient(to right, #b98fd9, #caa7ec, #b98fd9);
+  opacity: 0.15;
+  border-radius: 50px;
+}
+
+.footerText {
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.4px;
+  color: #d6b3f7;
+  background: none;
+  text-shadow: none;
+  opacity: 0.85;
+}
+
+.heart {
+  display: inline-block;
+  filter: drop-shadow(0 0 2px #b672f6);
+  animation: subtleBeat 3s infinite ease-in-out;
+  transition: transform 0.2s ease;
+}
+
+.heart:hover {
+  transform: scale(1.2);
+}
+
+/* Animasyonlar */
+@keyframes glowPulse {
+  0% {
+    text-shadow: 0 0 6px #d58dfd, 0 0 12px #f7c6ff;
+  }
+  50% {
+    text-shadow: 0 0 15px #f2b8ff, 0 0 25px #c77dff;
+  }
+  100% {
+    text-shadow: 0 0 6px #d58dfd, 0 0 12px #f7c6ff;
+  }
+}
+
+@keyframes beat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2) rotate(10deg); }
+}
+
+@keyframes pulseHeart {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2) rotate(15deg); }
+}
+
+@keyframes glowFade {
+  from { opacity: 0.2; }
+  to { opacity: 0.6; }
+}
