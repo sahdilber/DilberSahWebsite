@@ -10,7 +10,7 @@ export default function Hero() {
       <BackgroundStars />
 
       <div className={styles.container}>
-        <h1 className={styles.title}>Hi, I'm <span className={styles.highlight}>Dilber Şah</span></h1>
+        <h1 className={styles.title}>Hi, I&apos;m <span className={styles.highlight}>Dilber Şah</span></h1>
 
         <h2 className={styles.subtitle}>
           <span className={styles.gradient}>I build AI-powered full stack experiences</span>
