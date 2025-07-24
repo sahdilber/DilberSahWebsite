@@ -10,7 +10,7 @@ const projects = [
     image: '/projects/tripgo.png'
   },
   {
-    title: 'Aritfya',
+    title: 'AritfIA',
     description: 'Yapay zeka destekli üretkenlik uygulaması. Swift ile iOS platformunda geliştirildi.',
     tech: ['Swift', 'CoreML', 'UX/UI'],
     demo: '#',

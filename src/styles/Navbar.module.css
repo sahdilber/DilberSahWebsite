@@ -1,4 +1,3 @@
-/* Temel stiller */
 .header {
   position: fixed;
   width: 100%;
@@ -14,7 +13,19 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Logo */
+/* Ortadaki nav'ı hizalamak için */
+.center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.nav {
+  background-color: #151522;
+  border-radius: 2rem;
+  padding: 0.5rem 1.2rem;
+  display: flex;
+  align-items: center;
+}
 .logo {
   font-size: 1.3rem;
   font-weight: 700;
@@ -25,19 +36,18 @@
   box-shadow: 0 0 10px rgba(180, 120, 255, 0.3);
   cursor: pointer;
   transition: transform 0.3s ease;
-  position: relative;
 }
 
 .logo:hover {
   transform: scale(1.06);
 }
 
-/* Navigasyon */
-.nav {
-  background-color: #151522;
-  border-radius: 2rem;
-  padding: 0.5rem 1.2rem;
+.navWrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
+
 
 .menu {
   display: flex;
@@ -58,7 +68,6 @@
   font-weight: 500;
   text-decoration: none;
   transition: all 0.3s ease;
-  overflow: hidden;
   z-index: 1;
 }
 
@@ -102,7 +111,6 @@
   color: #ffffff;
 }
 
-/* Contact button */
 .contactBtn {
   background: linear-gradient(to right, #3b82f6, #ec4899);
   color: white;
@@ -110,17 +118,18 @@
   border-radius: 9999px;
   font-weight: 600;
   text-decoration: none;
-  display: flex;
   align-items: center;
   gap: 0.5rem;
   transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden; /* bu satır taşmayı engeller */
+  display: inline-flex;
 }
 
 .contactBtn:hover {
   transform: scale(1.05);
 }
 
-/* Baloncuk animasyonu */
 .bubbleContainer {
   position: absolute;
   top: 50%;
@@ -137,7 +146,6 @@
   filter: drop-shadow(0 0 6px rgba(173, 216, 255, 0.6));
 }
 
-/* Hamburger */
 .hamburger {
   display: none;
   background: none;
@@ -148,7 +156,6 @@
   z-index: 1001;
 }
 
-/* Mobil contact */
 .mobileContact {
   display: none;
 }
@@ -167,6 +174,7 @@
     border-bottom-left-radius: 24px;
     border-bottom-right-radius: 24px;
     transition: all 0.4s ease;
+    flex-direction: column;
   }
 
   .nav.open {
@@ -186,7 +194,7 @@
     width: 100%;
     justify-content: center;
   }
-  
+
   .contactBtn {
     display: none;
   }
@@ -198,6 +206,7 @@
   .hamburger {
     display: block;
   }
+
   .lensButton {
     background: none;
     border: none;
@@ -209,7 +218,7 @@
     z-index: 1001;
     margin-left: 1rem;
   }
-  
+
   .lensCircle {
     width: 100%;
     height: 100%;
@@ -223,7 +232,7 @@
     transition: transform 0.4s ease;
     position: relative;
   }
-  
+
   .lensLine {
     width: 18px;
     height: 2px;
@@ -232,23 +241,24 @@
     border-radius: 10px;
     transition: all 0.4s ease;
   }
-  
+
   .lensButton.open .lensCircle {
     transform: rotate(180deg) scale(1.05);
     background: radial-gradient(circle at center, #ec4899, #3b82f6);
   }
-  
+
   .lensButton.open .lensLine:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
   }
-  
+
   .lensButton.open .lensLine:nth-child(2) {
     opacity: 0;
   }
-  
+
   .lensButton.open .lensLine:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
   }
+
   .lensCircle::after {
     content: "";
     position: absolute;

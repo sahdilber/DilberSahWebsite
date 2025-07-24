@@ -1,7 +1,8 @@
 import styles from '../styles/Navbar.module.css'
-import { FaHome, FaUser, FaLaptopCode, FaBars, FaTimes } from 'react-icons/fa'
 import { MdContactMail } from 'react-icons/md'
-import { GiSkills } from 'react-icons/gi'
+import { LuUser } from 'react-icons/lu'
+import { PiBrainBold } from 'react-icons/pi'
+import { FiCode } from 'react-icons/fi'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -48,33 +49,27 @@ export default function Navbar() {
           </div>
         </AnimatePresence>
       </div>
-
-      <nav className={`${styles.nav} ${menuOpen ? styles.open : ''}`}>
-        <ul className={styles.menu}>
-          <li><a onClick={closeMenu} href="#hero"><FaHome /> Home</a></li>
-          <li><a onClick={closeMenu} href="#skills"><GiSkills /> Skills</a></li>
-          <li><a onClick={closeMenu} href="#about"><FaUser /> About Me</a></li>
-          <li><a onClick={closeMenu} href="#projects"><FaLaptopCode /> Projects</a></li>
-          <li className={styles.mobileContact}>
-            <a onClick={closeMenu} href="#contact"><MdContactMail /> Contact</a>
-          </li>
-        </ul>
-      </nav>
-
-      <a href="#contact" className={styles.contactBtn}><MdContactMail /> Contact</a>
-
-      {/* Hamburger Menü Butonu */}
-      <button
-  className={`${styles.lensButton} ${menuOpen ? styles.open : ''}`}
-  onClick={toggleMenu}
-  aria-label="Toggle menu"
->
-  <div className={styles.lensCircle}>
-    <span className={styles.lensLine}></span>
-    <span className={styles.lensLine}></span>
-    <span className={styles.lensLine}></span>
+     <div className={styles.center}>
+    <nav className={`${styles.nav} ${menuOpen ? styles.open : ''}`}>
+      <ul className={styles.menu}>
+        <li><a onClick={closeMenu} href="#hero"><LuUser />Home</a></li>
+        <li><a onClick={closeMenu} href="#skills"><PiBrainBold />Skills</a></li>
+        <li><a onClick={closeMenu} href="#about"><LuUser />About Me</a></li>
+        <li><a onClick={closeMenu} href="#projects"><FiCode />Projects</a></li>
+        <li className={styles.mobileContact}><a onClick={closeMenu} href="#contact"><MdContactMail />Contact</a></li>
+      </ul>
+    </nav>
   </div>
-</button>
-    </header>
+
+  <a href="#contact" className={styles.contactBtn}><MdContactMail/>Contact</a>
+  
+  <button className={`${styles.lensButton} ${menuOpen ? styles.open : ''}`} onClick={toggleMenu}>
+    <div className={styles.lensCircle}>
+      <span className={styles.lensLine}></span>
+      <span className={styles.lensLine}></span>
+      <span className={styles.lensLine}></span>
+    </div>
+  </button>
+</header>
   )
 }
