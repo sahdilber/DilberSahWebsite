@@ -6,9 +6,9 @@ export default function Contact() {
   return (
     <div className={styles.contactPage}>
       <section id="contact" className={styles.contactSection}>
-        <h2 className={styles.title}>Contact</h2>
+        <h2 className={styles.title}>Benimle İletişime Geçin</h2>
         <p className={styles.subtitle}>
-        I&apos;m always open to exciting opportunities and collaborations. Let&apos;s build something awesome together.
+        Her zaman heyecan verici fırsatlara ve iş birliklerine açığım. Birlikte harika bir şey ortaya çıkaralım.
         </p>
 
         <div className={styles.icons}>

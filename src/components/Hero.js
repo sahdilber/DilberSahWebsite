@@ -11,39 +11,42 @@ export default function Hero() {
       <BackgroundStars />
 
       <div className={styles.container}>
-        <h1 className={styles.title}>Hi, I&apos;m <span className={styles.highlight}>Dilber Şah</span></h1>
+  <h1 className={styles.title}>
+    Merhaba, ben <span className={styles.highlight}>Dilber ŞAH</span>
+  </h1>
 
-        <h2 className={styles.subtitle}>
-          <span className={styles.gradient}>I build AI-powered full stack experiences</span>
-        </h2>
+  <h2 className={styles.subtitle}>
+    <span className={styles.gradient}>
+      iOS Developer & Frontend Developer
+    </span>
+  </h2>
 
-        <p className={styles.type}>
-          I craft{' '}
-          <span className={styles.typing}>
-            <Typewriter
-              words={[
-                'intelligent apps',
-                'beautiful UIs',
-                'scalable APIs',
-                'mobile + web solutions'
-              ]}
-              loop={0}
-              cursor
-              cursorStyle="|"
-              typeSpeed={50}
-              deleteSpeed={40}
-              delaySpeed={1500}
-            />
-          </span>
-        </p>
+  <p className={styles.type}>
+    Mobil ve web için{' '}
+    <span className={styles.typing}>
+      <Typewriter
+        words={[
+          'modern arayüzler',
+          'akıcı kullanıcı deneyimleri',
+          'minimal tasarımlar',
+          'SwiftUI & web frontend çözümler'
+        ]}
+        loop={0}
+        cursor
+        cursorStyle="|"
+        typeSpeed={50}
+        deleteSpeed={40}
+        delaySpeed={1500}
+      />
+    </span>
+  </p>
 
-        <p className={styles.description}>
-          Full Stack Developer with a passion for AI and emotionally intuitive design.
-        </p>
-
+  <p className={styles.description}>
+  SwiftUI ve web frontend teknolojileriyle modern arayüzler üretiyorum.
+  </p>
         <div className={styles.socialIcons}>
           <a href="https://github.com/sahdilber" target="_blank"><FaGithub /></a>
-          <a href="https://linkedin.com/in/sahdilber" target="_blank"><FaLinkedin /></a>
+          <a href="https://tr.linkedin.com/in/dilbersah" target="_blank"><FaLinkedin /></a>
           <a href="#"><FaTimes /></a>
         </div>
 
@@ -51,10 +54,10 @@ export default function Hero() {
           <Link href="#projects" className={styles.primaryButton}>
             <FaEye /> <span>My Work</span>
           </Link>
-          <Link href="/cv.pdf" download className={styles.outlineButton}>
+          <Link href="/dilberSAH.pdf" download className={styles.outlineButton}>
             <FaFileAlt /> Resume
           </Link>
-          <a href="/cv.pdf" download className={styles.iconButton}>
+          <a href="/dilberSAH.pdf" download className={styles.iconButton}>
             <FaDownload />
           </a>
         </div>

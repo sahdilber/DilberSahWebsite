@@ -6,9 +6,9 @@ export default function Skills() {
   return (
     
     <section id="skills" className={styles.skillsSection}>
-      <h2 className={styles.title}>Technologies I Work With</h2>
+      <h2 className={styles.title}>Teknik Becerilerim</h2>
       <p className={styles.subtitle}>
-        Cutting edge tools and frameworks for building the future
+      Geliştirme süreçlerinde deneyim kazandığım teknolojiler.
       </p>
 
       <div className={styles.grid}>

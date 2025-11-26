@@ -1,29 +1,26 @@
+import Link from 'next/link'
 import styles from '../styles/Projects.module.css'
 
 const projects = [
   {
-    title: 'TripGo',
-    description: 'Yerli ve yabancı turistlere gizli kalmış sokak lezzetlerini ve kültürel noktaları tanıtan bir mobil uygulama.',
-    tech: ['React Native', 'Firebase', 'Google Maps API'],
-    demo: '#',
-    github: '#',
-    image: '/projects/tripgo.png'
+    title: 'ArtifyAI',
+    description:
+      'Fotoğrafları Van Gogh, Picasso ve Kandinsky gibi sanatçıların stiline dönüştüren yapay zeka destekli iOS uygulaması.',
+    tech: ['Swift', 'SwiftUI', 'CoreML', 'iOS'],
+    detail: '/artifyai',
+    github: 'https://github.com/sahdilber/ArtifyAI-',
+    image: '/projects/artifyai/artifyai-cover.jpeg'
   },
   {
-    title: 'AritfIA',
-    description: 'Yapay zeka destekli üretkenlik uygulaması. Swift ile iOS platformunda geliştirildi.',
-    tech: ['Swift', 'CoreML', 'UX/UI'],
-    demo: '#',
+    title: 'Moodiary',
+    description:
+      'Ruh halini kaydetme, hedef belirleme, grafik-takvim istatistikleri ve Firebase destekli modern bir mood tracking iOS uygulaması.',
+    tech: ['Swift', 'SwiftUI', 'Firebase', 'Firestore'],
+    detail: '/moodiary',
     github: '#',
-    image: '/projects/aritfya.png'
-  },
-  {
-    title: 'ERP Debug',
-    description: 'Dorasoft stajı süresince kurumsal bir ERP sisteminde hata ayıklama ve işlevsellik artırımı sağlandı.',
-    tech: ['SQL', 'Debugging', 'Team Workflow'],
-    demo: '#',
-    github: '#',
-    image: '/projects/erp.png'
+    image: '/projects/moodiary/moodiary-cover.PNG'
+    // Eğer görünmüyorsa: public/projects/moodiary klasöründeki dosya adını
+    // aynen buna göre kontrol et (.jpeg / .jpg / .png farkına bak)
   }
 ]
 
@@ -32,22 +29,53 @@ export default function Projects() {
     <section id="projects" className={styles.projectsSection}>
       <h2 className={styles.title}>Projects</h2>
       <p className={styles.subtitle}>Highlighted works from my journey</p>
+
       <div className={styles.grid}>
         {projects.map((project, index) => (
           <div key={index} className={styles.card}>
+            {/* GÖRSEL */}
             <div className={styles.header}>
-              <img src={project.image} alt={project.title} className={styles.image} />
+              <img
+                src={project.image}
+                alt={project.title}
+                style={{
+                  width: '100%',
+                  aspectRatio: '1/1',
+                  objectFit: 'cover',
+                  borderRadius: '14px'
+                }}
+              />
               <h3 className={styles.cardTitle}>{project.title}</h3>
             </div>
+
+            {/* TEKNOLOJİLER */}
             <div className={styles.tags}>
               {project.tech.map((tag, i) => (
-                <span key={i} className={styles.tag}>{tag}</span>
+                <span key={i} className={styles.tag}>
+                  {tag}
+                </span>
               ))}
             </div>
+
+            {/* AÇIKLAMA */}
             <p className={styles.description}>{project.description}</p>
+
+            {/* BUTONLAR */}
             <div className={styles.buttons}>
-              <a href={project.demo} className={styles.demoBtn}>Live Demo</a>
-              <a href={project.github} className={styles.githubBtn}>GitHub</a>
+              {/* PROJEYİ İNCELE → Next.js Link */}
+              <Link href={project.detail} className={styles.demoBtn}>
+                Projeyi İncele
+              </Link>
+
+              {/* GITHUB */}
+              <a
+                href={project.github}
+                className={styles.githubBtn}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </a>
             </div>
           </div>
         ))}

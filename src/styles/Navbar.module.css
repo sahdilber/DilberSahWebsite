@@ -209,16 +209,69 @@
     display: block;
   }
 
+ /* Masaüstü görünüm (varsayılan) */
+.lensButton {
+  display: none; /* 🌟 Masaüstünde tamamen gizli */
+}
+
+/* Mobil görünüm */
+@media (max-width: 768px) {
+  .nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    background-color: rgba(21, 21, 34, 0.98);
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    transition: all 0.4s ease;
+    flex-direction: column;
+  }
+
+  .nav.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    gap: 1rem;
+  }
+
+  .menu li a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .contactBtn {
+    display: none;
+  }
+
+  .mobileContact {
+    display: block;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
   .lensButton {
+    display: block; /* 🌟 Sadece mobilde görünür */
     background: none;
     border: none;
-    cursor: pointer;
     padding: 0;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     position: relative;
     z-index: 1001;
     margin-left: 1rem;
+    cursor: pointer;
   }
 
   .lensCircle {
@@ -231,7 +284,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: transform 0.4s ease;
+    transition: transform 0.4s ease, background 0.4s ease;
     position: relative;
   }
 
@@ -239,7 +292,7 @@
     width: 18px;
     height: 2px;
     background-color: white;
-    margin: 2px 0;
+    margin: 3px 0;
     border-radius: 10px;
     transition: all 0.4s ease;
   }
@@ -268,8 +321,9 @@
     left: 10%;
     width: 8px;
     height: 8px;
-    background: radial-gradient(circle, #fff, transparent);
+    background: radial-gradient(circle, #ffffff, transparent);
     border-radius: 50%;
     opacity: 0.5;
   }
+}
 }

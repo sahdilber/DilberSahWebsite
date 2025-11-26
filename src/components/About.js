@@ -7,12 +7,13 @@ export default function About() {
     <section id="about" className={styles.aboutSection}>
       <div className={styles.content}>
         <div className={styles.text}>
-          <h2 className={styles.title}>About Me</h2>
+          <h2 className={styles.title}>Ben Kimim?</h2>
           <p className={styles.description}>
-          I&apos;m Dilber Şah, a passionate Front-End and iOS Developer with a background in Computer Engineering. I enjoy building clean, functional, and user-centric applications that merge creativity with logic.
+          Ben Dilber Şah; modern arayüzler, kullanıcı deneyimi ve temiz yazılım mimarisi üzerine çalışan bir Front-End ve iOS Developer’ım. Çukurova Üniversitesi Bilgisayar Mühendisliği bölümünden mezunum; edindiğim mühendislik bakış açısını, estetik ve kullanıcı odaklı uygulamalar geliştirme tutkumla bir araya getiriyorum.
           </p>
           <p className={styles.description}>
-            With experience in technologies like HTML, CSS, React, Swift, and Python, I love crafting interactive interfaces and exploring new tools that push the boundaries of modern development.
+          React, Next.js, Swift ve SwiftUI ile performanslı, etkileşimli ve sade dijital deneyimler üretmeyi seviyorum. Kod yazarken ölçeklenebilir mimari, temiz yapı ve detaylara verilen özen benim için her zaman ön planda.
+Amacım; teknolojiyi modern tasarım anlayışıyla birleştirerek kullanıcıların gerçekten keyifle kullandığı arayüzler geliştirmek.
           </p>
         </div>
         <div className={styles.avatarContainer}>

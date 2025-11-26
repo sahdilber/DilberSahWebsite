@@ -27,7 +27,7 @@ export default function Navbar() {
   return (
     <header className={styles.header}>
       <div className={styles.logo} onClick={handleLogoClick}>
-        Dilber Şah
+        Dilber ŞAH
         <AnimatePresence mode="wait">
           <div className={styles.bubbleContainer} key={bubbleKey}>
             {[...Array(10)].map((_, i) => {
