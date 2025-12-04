@@ -4,6 +4,7 @@ import { Typewriter } from 'react-simple-typewriter'
 import { FaArrowDown } from 'react-icons/fa'
 import BackgroundStars from './BackgroundStars' // ⭐ Yıldızlar eklendi
 import { FaGithub, FaLinkedin, FaTimes, FaFileAlt, FaDownload, FaEye } from 'react-icons/fa'
+import { FaEnvelope } from 'react-icons/fa'
 
 export default function Hero() {
   return (
@@ -47,7 +48,7 @@ export default function Hero() {
         <div className={styles.socialIcons}>
           <a href="https://github.com/sahdilber" target="_blank"><FaGithub /></a>
           <a href="https://tr.linkedin.com/in/dilbersah" target="_blank"><FaLinkedin /></a>
-          <a href="#"><FaTimes /></a>
+          <a href="mailto:dilber-sah@hotmail.com"><FaEnvelope /></a>
         </div>
 
         <div className={styles.buttons}>

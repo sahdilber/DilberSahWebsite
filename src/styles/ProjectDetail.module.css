@@ -1,5 +1,5 @@
 .detail {
-  padding: 6rem 1.5rem;
+  padding: 8rem 1.5rem 3rem;
   background: radial-gradient(circle at top, #3b2a69 0, #090311 55%, #050308 100%);
   color: #f7f4ff;
 }
@@ -491,9 +491,12 @@
   }
 
   .detail {
-    padding: 4.5rem 1.2rem;
+    padding: 8.5rem 1.5rem 3rem;
   }
-
+  .inner {
+    flex-direction: column-reverse;
+    gap: 2.4rem;
+  }
   .metaRow {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -501,7 +504,7 @@
 
 @media (max-width: 640px) {
   .detail {
-    padding: 3.5rem 1rem;
+    padding: 10rem 1rem 3rem;
   }
 
   .deviceFrame {

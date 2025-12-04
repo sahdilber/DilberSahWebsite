@@ -18,7 +18,7 @@ const projects = [
     tech: ['Swift', 'SwiftUI', 'Firebase', 'Firestore'],
     detail: '/moodiary',
     github: 'https://github.com/sahdilber/Mood-journal',
-    image: '/projects/moodiary/moodiary-cover.jpeg'
+    image: '/projects/moodiary/moodiary-cover.jpg'
     // Eğer görünmüyorsa: public/projects/moodiary klasöründeki dosya adını
     // aynen buna göre kontrol et (.jpeg / .jpg / .png farkına bak)
   }

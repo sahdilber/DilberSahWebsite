@@ -242,7 +242,7 @@ export default function Moodiary() {
 
             <div className={styles.actions}>
               <a
-                href="https://github.com/sahdilber" // buraya istersen direkt Moodiary repo linkini koy
+                href="https://github.com/sahdilber/Mood-journal" // buraya istersen direkt Moodiary repo linkini koy
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${styles.button} ${styles.primaryButton}`}
