@@ -17,8 +17,8 @@ const projects = [
       'Ruh halini kaydetme, hedef belirleme, grafik-takvim istatistikleri ve Firebase destekli modern bir mood tracking iOS uygulaması.',
     tech: ['Swift', 'SwiftUI', 'Firebase', 'Firestore'],
     detail: '/moodiary',
-    github: '#',
-    image: '/projects/moodiary/moodiary-cover.PNG'
+    github: 'https://github.com/sahdilber/Mood-journal',
+    image: '/projects/moodiary/moodiary-cover.jpeg'
     // Eğer görünmüyorsa: public/projects/moodiary klasöründeki dosya adını
     // aynen buna göre kontrol et (.jpeg / .jpg / .png farkına bak)
   }

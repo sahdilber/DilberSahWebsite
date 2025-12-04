@@ -1,145 +1,259 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import Head from 'next/head'
 import Link from 'next/link'
 import styles from '../styles/ProjectDetail.module.css'
-import { FaArrowLeft, FaGithub } from 'react-icons/fa'
+import { FaArrowLeft, FaChevronLeft, FaChevronRight, FaGithub } from 'react-icons/fa'
 
 const images = [
-  { src: '/projects/moodiary/moodiary-1-login.PNG', alt: 'Giriş ekranı' },
-  { src: '/projects/moodiary/moodiary-2-signup.PNG', alt: 'Kayıt ekranı' },
-  { src: '/projects/moodiary/moodiary-3-stats-chart.PNG', alt: 'Grafik görünümü' },
-  { src: '/projects/moodiary/moodiary-4-stats-calendar.PNG', alt: 'Takvim görünümü' },
-  { src: '/projects/moodiary/moodiary-5-profile.PNG', alt: 'Profil ekranı' },
-  { src: '/projects/moodiary/moodiary-6-goals.PNG', alt: 'Hedefler listesi' },
-  { src: '/projects/moodiary/moodiary-7-new-entry.PNG', alt: 'Yeni mood girişi' }
+  {
+    src: '/projects/moodiary/moodiary-1-login.PNG',
+    alt: 'Moodiary - Giriş ekranı',
+    caption: 'Kullanıcı dostu giriş ve kayıt akışı.',
+    section: 'Giriş & Kayıt'
+  },
+  {
+    src: '/projects/moodiary/moodiary-2-signup.PNG',
+    alt: 'Moodiary - Kayıt ekranı',
+    caption: 'E-posta ile hızlı ve sade kayıt.',
+    section: 'Giriş & Kayıt'
+  },
+  {
+    src: '/projects/moodiary/moodiary-9-main.PNG',
+    alt: 'Moodiary - Ana sayfa',
+    caption: 'Günlük mood kartları ile ana akış.',
+    section: 'Günlük Akışı'
+  },
+  {
+    src: '/projects/moodiary/moodiary-7-new-entry.PNG',
+    alt: 'Moodiary - Yeni mood girişi',
+    caption: 'Mood seçimi, not ekleme ve kaydetme.',
+    section: 'Günlük Akışı'
+  },
+  {
+    src: '/projects/moodiary/moodiary-3-stats-chart.PNG',
+    alt: 'Moodiary - Grafik istatistikleri',
+    caption: 'Duygu değişimini çizgi grafikle takip et.',
+    section: 'İstatistikler'
+  },
+  {
+    src: '/projects/moodiary/moodiary-4-stats-calendar.PNG',
+    alt: 'Moodiary - Takvim görünümü',
+    caption: 'Hangi gün nasıl hissettiğini takvim üzerinden gör.',
+    section: 'İstatistikler'
+  },
+  {
+    src: '/projects/moodiary/moodiary-5-profile.PNG',
+    alt: 'Moodiary - Profil ekranı',
+    caption: 'Bildirim ve hesap ayarlarını yönet.',
+    section: 'Profil'
+  },
+  {
+    src: '/projects/moodiary/moodiary-6-goals.PNG',
+    alt: 'Moodiary - Hedefler ekranı',
+    caption: 'Duygusal hedefler belirle, ilerlemeni takip et.',
+    section: 'Hedefler'
+  }
 ]
 
-export default function MoodiaryPage() {
-  const [lightboxImage, setLightboxImage] = useState(null)
+export default function Moodiary() {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const currentImage = images[currentIndex]
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length)
+  }
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % images.length)
+  }
+
+  const handleDotClick = (index) => {
+    setCurrentIndex(index)
+  }
+
+  // Klavye ile ilerleme (← →)
+  useEffect(() => {
+    const onKeyDown = (e) => {
+      if (e.key === 'ArrowLeft') {
+        handlePrev()
+      } else if (e.key === 'ArrowRight') {
+        handleNext()
+      }
+    }
+
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [])
 
   return (
-    <section className={styles.section}>
-      <div className={styles.inner}>
+    <>
+      <Head>
+        <title>Moodiary • Proje Detayı | Dilber Şah</title>
+        <meta
+          name="description"
+          content="Moodiary, ruh halini kaydetmeni, hedefler belirlemeni ve istatistiklerle kendini analiz etmeni sağlayan modern bir iOS mood tracking uygulamasıdır."
+        />
+      </Head>
 
-        {/* Üst navigasyon */}
-        <div className={styles.backRow}>
-          <Link href="/#projects" className={styles.backLink}>
-            <FaArrowLeft />
-            <span>Projelerime dön</span>
-          </Link>
+      <section className={styles.detail}>
+        <div className={styles.inner}>
+          {/* SOL: GÖRSEL GALERİSİ */}
+          <div className={styles.gallery}>
+            <div className={styles.deviceWrapper}>
+              <div className={styles.deviceFrame}>
+                <div className={styles.deviceNotch} />
+                <img
+                  src={currentImage.src}
+                  alt={currentImage.alt}
+                  className={styles.image}
+                />
 
-          <span className={styles.badge}>iOS · Firebase · SwiftUI</span>
-        </div>
+                <button
+                  type="button"
+                  className={`${styles.navButton} ${styles.navLeft}`}
+                  onClick={handlePrev}
+                  aria-label="Önceki ekran"
+                >
+                  <FaChevronLeft />
+                </button>
 
-        {/* Başlık */}
-        <header className={styles.header}>
-          <h1 className={styles.title}>Moodiary – Mood Tracking Journal</h1>
-          <p className={styles.subtitle}>
-            Duygularını takip eden, hedefler belirleyip gelişimi izleten,
-            grafik ve takvim görünümü ile farkındalık kazandıran modern bir iOS günlük uygulaması.
-          </p>
+                <button
+                  type="button"
+                  className={`${styles.navButton} ${styles.navRight}`}
+                  onClick={handleNext}
+                  aria-label="Sonraki ekran"
+                >
+                  <FaChevronRight />
+                </button>
 
-          <div className={styles.meta}>
-            <div>
-              <span className={styles.metaLabel}>Rolüm</span>
-              <p className={styles.metaValue}>iOS Developer · UI/UX Tasarımı · Firebase</p>
+                <div className={styles.imageOverlayGlow} />
+              </div>
+
+              <div className={styles.deviceShadow} />
             </div>
-            <div>
-              <span className={styles.metaLabel}>Teknolojiler</span>
-              <p className={styles.metaValue}>Swift · SwiftUI · Firebase Auth · Firestore</p>
-            </div>
-          </div>
-        </header>
 
-        {/* Ana içerik */}
-        <main className={styles.content}>
-          
-          {/* SOL — Görseller */}
-          <div className={styles.visualColumn}>
-            {/* Kapak görseli */}
-            <div className={styles.coverWrapper}>
-              <img
-                src="/projects/moodiary/moodiary-cover.jpeg"
-                alt="Moodiary kapak"
-                className={styles.coverImage}
-              />
-            </div>
+            <p className={styles.caption}>
+              <span className={styles.counter}>
+                {currentIndex + 1}/{images.length}
+              </span>
+              <span className={styles.sectionBadge}>
+                {currentImage.section}
+              </span>
+              <span className={styles.captionText}>{currentImage.caption}</span>
+            </p>
 
-            {/* Galeri */}
-            <h2 className={styles.sectionHeading}>Ekran Görüntüleri</h2>
-            <div className={styles.gallery}>
-              {images.map((img, i) => (
-                <div key={i} className={styles.thumbWrapper}>
-                  <img
-                    src={img.src}
-                    alt={img.alt}
-                    className={styles.thumb}
-                    onClick={() => setLightboxImage(img.src)}
-                  />
-                </div>
+            <div className={styles.dots}>
+              {images.map((_, index) => (
+                <button
+                  key={index}
+                  type="button"
+                  className={`${styles.dot} ${
+                    index === currentIndex ? styles.dotActive : ''
+                  }`}
+                  onClick={() => handleDotClick(index)}
+                  aria-label={`Ekran ${index + 1}`}
+                />
               ))}
             </div>
+
+            <p className={styles.hint}>
+              Görseller arasında geçiş yapmak için{' '}
+              <span className={styles.keyHint}>←</span> /{' '}
+              <span className={styles.keyHint}>→</span> tuşlarını veya ok
+              butonlarını kullan.
+            </p>
           </div>
 
-          {/* SAĞ — Açıklamalar */}
-          <div className={styles.textColumn}>
+          {/* SAĞ: METİN / BİLGİ */}
+          <div className={styles.info}>
+            <Link href="/#projects" className={styles.backLink}>
+              <FaArrowLeft />
+              <span>Projelerime geri dön</span>
+            </Link>
 
-            <h2 className={styles.sectionHeading}>Proje Özeti</h2>
-            <p className={styles.paragraph}>
-              Moodiary, kullanıcının günlük ruh halini kaydetmesini, hedef belirlemesini
-              ve duygusal değişimini zaman içinde takip edebilmesini sağlayan modern bir
-              iOS uygulamasıdır. Tüm veriler Firebase üzerinde güvenli şekilde saklanır.
+            <div className={styles.pill}>
+              Case Study • iOS Mood Tracking Uygulaması
+            </div>
+
+            <h1 className={styles.title}>Moodiary</h1>
+            <p className={styles.subtitle}>
+              Günlük ruh halini kaydet, istatistikleri takip et ve kendini
+              daha iyi tanımana yardımcı olan{' '}
+              <span className={styles.highlightInline}>kişisel bir duygu günlüğü</span>.
             </p>
 
-            <p className={styles.paragraph}>
-              Uygulama; gradient arkaplanı, kart tabanlı arayüzü ve custom tab bar yapısıyla
-              modern bir görünüm sunarken, SwiftUI ile performanslı ve akıcı bir deneyim sağlar.
+
+            <div className={styles.chipsRow}>
+              <span className={styles.chip}>iOS</span>
+              <span className={styles.chip}>SwiftUI</span>
+              <span className={styles.chip}>Firebase</span>
+              <span className={styles.chip}>MVVM</span>
+            </div>
+
+            <p className={styles.description}>
+              Moodiary; ruh halini rahatça kaydedebileceğin, duygusal
+              dalgalanmalarını grafik ve takvim istatistikleriyle
+              görüntüleyebileceğin modern bir iOS mood tracking uygulaması.
+              Kullanıcılar günlük mood girişleri oluşturup not ekleyebiliyor,
+              hedefler belirleyebiliyor ve zaman içindeki değişimi
+              görselleştirebiliyor. Amaç, kişinin kendi duygusal pattern’lerini
+              fark etmesini ve iyi olma halini bilinçli şekilde takip etmesini
+              kolaylaştırmak.
             </p>
 
-            {/* Özellikler */}
-            <h3 className={styles.subHeading}>Öne Çıkan Özellikler</h3>
-            <ul className={styles.list}>
-              <li>Ruh hali kaydı için emoji tabanlı tasarım.</li>
-              <li>Günlük not ekleme ve hedef tamamlama.</li>
-              <li>Bar grafik ile mood dağılımı analizi.</li>
-              <li>Takvim görünümü ile mood geçmişi takibi.</li>
-              <li>Firebase Auth ile güvenli giriş/kayıt ekranı.</li>
-              <li>Profil: bildirim saatleri, şifre değiştirme, çıkış.</li>
+            <h2 className={styles.sectionTitle}>Öne çıkan özellikler</h2>
+            <ul className={styles.featureList}>
+              <li>Günlük mood kaydı, not ekleme ve mood sınıflandırma</li>
+              <li>Grafik ve takvim tabanlı gelişmiş istatistik ekranı</li>
+              <li>Firebase Authentication ile güvenli giriş/kayıt sistemi</li>
+              <li>Firestore ile gerçek zamanlı veri senkronizasyonu</li>
+              <li>Profil sayfasından bildirim ve hesap ayarları yönetimi</li>
+              <li>Modern SwiftUI arayüzü ve MVVM mimarisi</li>
             </ul>
 
-            {/* Teknik */}
-            <h3 className={styles.subHeading}>Teknik Detaylar</h3>
-            <ul className={styles.list}>
-              <li>SwiftUI + MVVM mimarisi.</li>
-              <li>Firestore’da kullanıcı bazlı mood koleksiyonları.</li>
-              <li>Gerçek zamanlı Firestore sorguları.</li>
-              <li>Local bildirim planlayıcı ile daily reminders.</li>
-              <li>Custom chart & calendar bileşenleri.</li>
-            </ul>
+            <h2 className={styles.sectionTitle}>Kullanıcı akışı</h2>
+            <div className={styles.flowRow}>
+              <div className={styles.flowStep}>
+                <span className={styles.flowBullet}>1</span>
+                <p>Giriş / kayıt ile kişisel hesabın oluşturulur.</p>
+              </div>
+              <div className={styles.flowStep}>
+                <span className={styles.flowBullet}>2</span>
+                <p>Her gün mood ve kısa not ekleyerek günlüğünü doldurursun.</p>
+              </div>
+              <div className={styles.flowStep}>
+                <span className={styles.flowBullet}>3</span>
+                <p>
+                  Grafikleri ve takvimi kullanarak duygusal trendlerini analiz
+                  edersin.
+                </p>
+              </div>
+            </div>
 
-            {/* GitHub */}
+            <h2 className={styles.sectionTitle}>Kullanılan teknolojiler</h2>
+            <div className={styles.techGrid}>
+              <span className={styles.techItem}>Swift</span>
+              <span className={styles.techItem}>SwiftUI</span>
+              <span className={styles.techItem}>Firebase Auth</span>
+              <span className={styles.techItem}>Cloud Firestore</span>
+              <span className={styles.techItem}>Combine</span>
+              <span className={styles.techItem}>MVVM</span>
+            </div>
+
             <div className={styles.actions}>
               <a
-                href="#"
-                className={`${styles.button} ${styles.buttonSecondary}`}
-                onClick={e => e.preventDefault()}
+                href="https://github.com/sahdilber" // buraya istersen direkt Moodiary repo linkini koy
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${styles.button} ${styles.primaryButton}`}
               >
                 <FaGithub />
-                <span>GitHub Repo Yakında</span>
+                <span>GitHub’da projeyi gör</span>
               </a>
             </div>
           </div>
-        </main>
-      </div>
-
-      {/* Lightbox Modal */}
-      {lightboxImage && (
-        <div
-          className={styles.lightbox}
-          onClick={() => setLightboxImage(null)}
-        >
-          <img src={lightboxImage} className={styles.lightboxImage} />
         </div>
-      )}
-    </section>
+      </section>
+    </>
   )
 }
