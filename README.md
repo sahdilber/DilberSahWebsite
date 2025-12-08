@@ -1,40 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# 🌙 Dilber Şah – Personal Portfolio
 
-## Getting Started
+Merhaba! Bu proje, “koyu temalı ama enerjik”, “minimal ama hareketli”, “şık ama ışıl ışıl” bir kişisel portfolyo oluşturma maceremin sonucu.  
+SwiftUI ve Next.js arasında mekik dokurken, tasarımı da kendi tarzıma uyacak şekilde şekillendirdim.  
+Uzay hissi veren yıldızlar, hover animasyonları ve yumuşak geçişlerle dolu modern bir deneyim! 🚀✨
 
-First, run the development server:
+## 🚀 Live Demo
+Tam sürümü buradan gezebilirsin:  
+https://dilbersah.netlify.app
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Özellikler
+- 🎯 Tek sayfa (single-page) modern akış  
+- 🌌 Uzay arka planı + parlayan yıldız animasyonları  
+- 🎨 Gradient başlıklar, smooth scroll ve yumuşak mikro animasyonlar  
+- 🪄 Hover’da parlayan proje kartları  
+- 🖱️ Özel imleç efekti (tüm sayfada!)  
+- 📱 Her ekrana uyumlu responsive tasarım  
+- 💬 Sosyal ikonlarda “ışıklı mini açıklamalar”  
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Kısacası: sade değil, *kişilikli* bir portfolio.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## 🧩 Teknolojiler
+- Next.js 13+
+- React
+- CSS Modules
+- Framer Motion (animasyon büyüsü)
+- React Icons
+- Netlify
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ▶️ Çalıştırma
+npm install  
+npm run dev  
 
-## Learn More
+Sonra şu adrese uğra:  
+http://localhost:3000
 
-To learn more about Next.js, take a look at the following resources:
+## 📬 İletişim
+Dilber Şah  
+📧 dilber-sah@hotmail.com  
+🐙 GitHub: https://github.com/sahdilber  
+🔗 LinkedIn: https://www.linkedin.com/in/dilbersah/
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+## 📝 Lisans
+Kişisel portfolio projesidir. İlham alabilirsin, ama birebir kopyalamak yok 😉
